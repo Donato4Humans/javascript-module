@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>script_connect</title>
+
+    <script>
+        console.log('script from head');
+    //     head script used to prevent micro-session behaviour(like tracking for facebook/google/etc. ads or similar
+    //     also for loading some content that will be used in body
+    </script>
+</head>
+<body>
+
+<script>
+    console.log('script from body');
+//     default script within body/used for small scripts(maybe?)
+</script>
+<script src="script1.1.js">
+<!--code inside script tag will not execute if it uses src attribute-->
+</script>
+</body>
+</html>
