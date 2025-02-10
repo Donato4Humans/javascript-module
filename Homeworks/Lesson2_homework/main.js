@@ -101,49 +101,56 @@
 // Як зробити цей масив - вам потрібно подумати. Нормальних варіантів опису - 2.
 // Варіант, коли в вас буде одновимірний масив з 21 значенням вичключаємо одразу
 {
-    let Monday = {
+    let monday = {
+        dayName : 'Monday',
         morning: 0,
         day: 5,
         evening: 2
     }
-    let Tuesday = {
+    let tuesday = {
+        dayName : 'Tuesday',
         morning: 0,
         day: 5,
         evening: 2
     }
-    let Wednesday = {
+    let wednesday = {
+        dayName : 'Wednesday',
         morning: 0,
         day: 5,
         evening: 2
     }
-    let Thursday = {
+    let thursday = {
+        dayName : 'Thursday',
         morning: 0,
         day: 5,
         evening: 2
     }
-    let Friday = {
+    let friday = {
+        dayName : 'Friday',
         morning: 0,
         day: 5,
         evening: 2
     }
-    let Saturday = {
+    let saturday = {
+        dayName : 'Saturday',
         morning: 0,
         day: 5,
         evening: 2
     }
-    let Sunday = {
+    let sunday = {
+        dayName : 'Sunday',
         morning: 0,
         day: 5,
         evening: 2
     }
     let weekTemp = [
-        Monday,
-        Tuesday,
-        Wednesday,
-        Thursday,
-        Friday,
-        Saturday,
-        Sunday
+        monday,
+        tuesday,
+        wednesday,
+        thursday,
+        friday,
+        saturday,
+        sunday
     ]
 }
 
