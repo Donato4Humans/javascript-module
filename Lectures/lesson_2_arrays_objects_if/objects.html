@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>objects</title>
+</head>
+<body>
+
+<script>
+    let user1 = {
+        id : 1, // id - key/field/attribute, 1 - value
+        name : 'bogdan',
+        age : 26,
+        skills : ['html', 'css', 'javascript'],
+        wife : {
+            name : 'polina',
+            age : 26
+        }
+    }
+    console.log(user1);
+    console.log(user1.id);
+    console.log(user1['id']);
+    console.log(user1.skills[2]);
+
+    console.log(user1.wife.name);
+
+    //objects array - most popular data structure in web development
+    let users = [
+        {skills: ['html', 'css', 'js', 'react'], id: 1, name: 'bogdan', age: 33, status: true},
+        {skills: ['html', 'css' ], id: 2, name: 'nikita', age: 31, status: false},
+        {skills: ['html', 'css', 'js', 'react'], id: 3, name: 'polina', age: 23, status: true},
+        {skills: ['html', 'css' ], id: 4, name: 'iryna', age: 53, status: false}
+    ]
+    console.log(users);
+    let user0 = users[0];
+    console.log(user0.age);
+    console.log(users[0].skills[2]);
+
+    let user = {
+        id: 1,
+        name: 'vasya',
+    }
+    user.age = 31;
+    user['status'] = true;
+    console.log(user);
+
+    delete user.id;
+    console.log(user);
+</script>
+</body>
+</html>

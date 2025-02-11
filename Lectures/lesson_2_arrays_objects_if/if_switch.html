@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>if_switch</title>
+</head>
+<body>
+
+<script>
+    let color = 'red';
+    if(color === 'red'){
+        console.log('stop');
+    }else{
+        console.log('go');
+    }
+
+    let age = +prompt('enter your age');
+    if(age >= 18){
+        console.log('adult');
+    }else{
+        console.log('cartoon');
+    }
+
+    let color1 = prompt('enter color!');
+    if(color1 === "green" && confirm('is road clear?')){
+        console.log('go');
+    }else if(color1 === 'yellow'){
+        console.log("wait");
+    }else if(color1 === 'red'){
+        console.log('stop');
+    }else{
+        console.log('?????');
+    }
+
+    // switch
+    let color2 = prompt('enter color');
+    switch(color2){
+        case 'green':
+            console.log('go');
+            break;
+        case 'yellow':
+            console.log('wait');
+            break;
+        case 'red':
+            console.log('stop');
+            break;
+        default:
+            console.log('wrong color');
+    }
+
+    //ternary used for initialize variable depending on result of logical comparison
+    let obj1 = {
+        id: 1,
+        name: 'vasya',
+        age: 16
+    }
+
+    let access = obj.age > 18 ? 'Yes' : 'No';
+    console.log(access);
+</script>
+</body>
+</html>
