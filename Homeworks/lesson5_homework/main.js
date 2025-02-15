@@ -38,7 +38,7 @@
 {
     let arr = [1, 2, 3, 4, 5, 'asdf', true];
     let arrayPrint = (arr) => {
-        for (const item in arr) {
+        for (const item of arr) {
             console.log(arr[item]);
         }
     }
@@ -90,7 +90,7 @@
 {
     let arrPrint = (...arr) => {
         document.write(`<ul>`);
-        for (const item in arr) {
+        for (const item of arr) {
             document.write(`<li>${arr[item]}</li>`);
         }
         document.write(`</ul>`);
@@ -124,7 +124,7 @@
 {
     let findMin = (...arr) => {
         let min = arr[0];
-        for (const number in arr) {
+        for (const number of arr) {
             if(arr[number] < min){
                 min = arr[number];
             }
@@ -140,7 +140,7 @@
 {
     let sumArr = (...arr) => {
         let result = 0;
-        for (const number in arr) {
+        for (const number of arr) {
             result += arr[number];
         }
         return result;
@@ -169,7 +169,7 @@
 {
     let currencyValues = [{currency: 'USD', value: 25}, {currency: 'EUR', value: 42}];
     let exchange = (sumUAH, currencyValues, exchangeCurrency) => {
-        for (const item in currencyValues) {
+        for (const item of currencyValues) {
             if(currencyValues[item].currency === exchangeCurrency){
                 return sumUAH / currencyValues[item].value;
             }

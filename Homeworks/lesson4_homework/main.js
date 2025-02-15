@@ -43,7 +43,7 @@
 {
     let arr = [1, 2, 3, 4, 5, 'asdf', true];
     function arrayPrint(arr) {
-        for (const item in arr) {
+        for (const item of arr) {
             console.log(arr[item]);
         }
     }
@@ -98,7 +98,7 @@
     let arr = [123, 456, 789, 'asd', 'qwe', 'zxc', true, false];
     function arrPrint(arr) {
         document.write(`<ul>`);
-        for (const item in arr) {
+        for (const item of arr) {
             document.write(`<li>${arr[item]}</li>`);
         }
         document.write(`</ul>`);
@@ -116,7 +116,7 @@
     {id: 3, name: 'name3', age: 20}
     ]
     function objArrPrint(users) {
-        for (const user in users) {
+        for (const user of users) {
             document.write(`<ul>`);
             document.write(`<li>${users[user].id}</li>`);
             document.write(`<li>${users[user].name}</li>`);
@@ -133,7 +133,7 @@
     let arr = [1, 5, 3, 9, 0, -1, -5];
     function findMin(arr){
         let min = arr[0];
-        for (const number in arr) {
+        for (const number of arr) {
             if(arr[number] < min){
                 min = arr[number];
             }
@@ -150,7 +150,7 @@
     let arr = [1, 5, 3, 9, 0, -1, -3];
     function sumArr(arr){
         let result = 0;
-        for (const number in arr) {
+        for (const number of arr) {
             result += arr[number];
         }
         return result;
@@ -180,7 +180,7 @@
 {
     let currencyValues = [{currency: 'USD', value: 25}, {currency: 'EUR', value: 42}];
     function exchange(sumUAH, currencyValues, exchangeCurrency) {
-        for (const item in currencyValues) {
+        for (const item of currencyValues) {
             if(currencyValues[item].currency === exchangeCurrency){
                 return sumUAH / currencyValues[item].value;
             }
