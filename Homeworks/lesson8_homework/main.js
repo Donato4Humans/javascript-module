@@ -16,7 +16,7 @@
             let funcArr = [];
             for (let field in obj) {
                 if(typeof obj[field] === "function"){
-                    let funcCopy = obj[field].bind({});// watched video of solution because did not come up with how to use bind with empty object{}
+                    let funcCopy = obj[field].bind({});
                     funcArr.push({funcCopy, field});
                 }
             }
@@ -55,7 +55,7 @@
     {title: 'FullStack', monthDuration: 7},
     {title: 'Frontend', monthDuration: 4}
 ];
-    let courses = coursesAndDurationArray; // read about ()-brackets around returned object{} on stackoverflow
+    let courses = coursesAndDurationArray;
     let mappedArr = courses.map((value, index) => ({id: index + 1, ...value}));
     console.log(mappedArr);
 }
