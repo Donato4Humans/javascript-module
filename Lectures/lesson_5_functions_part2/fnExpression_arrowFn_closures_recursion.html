@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>FUNCTIONS</title>
+</head>
+<body>
+
+<script>
+    //greeting(); // we can`t call this expression because at this point variable is not created yet
+    const greeting = function (){ //function expression used more often(react framework) with const because of optimization
+        console.log('hi');
+    };
+
+    asd();// we can call function declared above because it goes up for interpreter after declaration
+    function asd(){ // function declaration
+        console.log('asd;flkjaskldjf');
+    }
+
+    //arrow function-----------------------------------------
+    let calc = (a, b) => /*return*/ a + b; //inline arrow fn without return and {}-fn body
+    console.log(calc(10, 20));
+
+    let noReturn = () => console.log('hi');// returns undefined when function do not return anything
+
+    //let noArgs = () => console.log(arguments); //arrow fn do not have arguments pseudo-array
+
+    let withBody = (a, b) => { //arrow fn with body{}
+        return a + b;
+    }
+
+    //functions in objects--------------------------------------
+    let user = {
+        name: 'vasya',
+        age: 31,
+        greetin: function (msg){ //default function declaration is better for objects
+            console.log(this);
+            return `${msg} my name is ${this.age}`
+        },
+        vitaju: (msg) => `${msg} my age is ${this.age}` // 'this' context in obj arrow fn don`t work
+    }
+    console.log(user.greetin('hi'));
+    console.log(user.vitaju('hello'));
+
+    //closures topic-----------------------------------------------
+    function assd(){
+        let x = 10;
+        function  inner(){
+            return ++x;
+        }
+        return inner;
+    }
+    let foo = assd();
+    console.log(foo());
+    console.log(foo());
+    console.log(foo());
+    console.log(typeof foo);
+    //foo function that holds active reference to assd() thanks to it we can work with local variable outside its scope
+    // like private member in other languages(used for encapsulation)
+
+    function userBuilder(name, age){
+        let user = {name, age};
+        return{
+            getName(){return user.name;},
+            getAge(){return user.age;},
+            setAge(age){ // set & get functions emulating encapsulation via closures in js
+                if(age > 0){
+                    user.age = age;
+                }
+            }
+        }
+    }
+    let builder = userBuilder('vasya', 25);
+    console.log(builder); //object with 2 get functions that can give access to local object
+
+    console.log(builder.getName());
+    builder.setAge(30);
+    console.log(builder.getAge());
+
+    //recursion topic--------------------------------------
+    function iterator(arr, i){
+        console.log(arr[i]);
+        i++;
+        if(i < arr.length){
+            iterator(arr, i);
+        }
+    }
+    iterator([11,22,33,44,55], 0);
+
+    // mostly used for going inside multiple inclusion arrays, especially if you don`t know level of inclusion
+    let arrTrio = [11, 22, 33, [44, 55, 66, [77, 88, 99]]];
+    let innerArray = [];
+    function flatter(array){
+        for (const item of array) {
+            if(Array.isArray(item)){
+                flatter(item);
+            }else{
+                innerArray.push(item);
+            }
+        }
+    }
+    flatter(arrTrio);
+    console.log(innerArray);
+
+    // Generator function-------------------------------------------
+    // used mostly for generation some sequence output (like cards hand or random values)
+    function* fooo(){
+        yield 100;
+        yield 200;
+        yield 300;
+    }
+    let fooGenerator = fooo(); // important to chain it to function via reference and use then this variable
+    console.log(fooGenerator.next());// 100 , done: false
+    console.log(fooGenerator.next());// 200 , done: false
+    console.log(fooGenerator.next());// 300 , done: false
+    console.log(fooGenerator.next());// undefined , done: true
+
+    function* cardsHolder(){
+        const cards = [
+            {value: 6, suite: 'diamond'},
+            {value: 7, suite: 'spade'},
+            {value: 8, suite: 'diamond'},
+            {value: 9, suite: 'spade'},
+        ]
+        for (const card of cards) {
+            yield card;
+        }
+    }
+    const cardsHolderGenerator = cardsHolder();
+    const card1 = cardsHolderGenerator.next();
+    console.log(card1);
+    //some code...
+    const card2 = cardsHolderGenerator.next();
+    console.log(card2.value);
+    //some code
+    const card3Data = cardsHolderGenerator.next().value;
+    console.log(card3Data);
+
+    //ERROR HANDLING------------------------------------------
+    console.log('start');
+    try{
+        console.log(a);
+    }catch(e){
+        console.error(e);
+    }finally {
+        console.log('finally block');// executes anyway even if no error was caught
+    }
+    console.log('end');
+
+    function calculator(a, b){
+        if(b === 0){
+            throw new Error('b is 0'); // throws an error that must be caught later
+        }
+        return a / b;
+    }
+
+    calculator(5, 0);
+</script>
+</body>
+</html>
