@@ -96,7 +96,9 @@
 // При натисканні кнопки, вся ця інформація зчитується і формується табличка, з відповідним вмістом.
 {
     let sendBtn = document.getElementById('tableBtn');
+    let tableWrap = document.getElementById('tableTarget');
     sendBtn.onclick = function (){
+        tableWrap.innerHTML = '';
         let rows = document.getElementById('tableRows').valueAsNumber;
         let columns = document.getElementById('tableColumns').valueAsNumber;
         let content = document.getElementById('tableContent').value;
@@ -110,7 +112,7 @@
                 column.style.border = '1px solid';//for table-like look
                 row.appendChild(column);
             }
-            document.body.appendChild(row);
+            tableWrap.appendChild(row);
         }
     }
 }
